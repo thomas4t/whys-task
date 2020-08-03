@@ -1,6 +1,6 @@
 ### How to run
 
-terminal -> npm install -> npm start
+terminal -> npm install (install dependencies) -> npm start
 
 ### `npm start`
 
