@@ -1,4 +1,4 @@
-### How to run
+### How to run locally
 
 terminal -> npm install (install dependencies) -> npm start
 
