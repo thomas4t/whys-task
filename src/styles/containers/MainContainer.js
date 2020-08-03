@@ -4,6 +4,8 @@ import Paper from "@material-ui/core/Paper";
 const MainContainer = styled(Paper)`
   width: 60%;
   margin: auto;
+  background: ${(props) => props.theme.colors.darkBackground} !important;
+  color: #fff !important;
   @media only screen and (max-width: 1200px) {
     width: 70%;
   }

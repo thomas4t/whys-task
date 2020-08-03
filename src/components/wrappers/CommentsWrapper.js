@@ -1,7 +1,7 @@
 import React from "react";
 import Comment from "../Comment";
 import Loader from "react-loader-spinner";
-import Button from "@material-ui/core/Button";
+import Button from "../Button";
 import LoaderContainer from "../../styles/containers/LoaderContainer";
 
 const CommentsWrapper = ({
@@ -49,14 +49,7 @@ const CommentsWrapper = ({
           </>
         ) : null}
         {extraCommentsLoaded ? null : (
-          <Button
-            variant="contained"
-            color="primary"
-            size="small"
-            onClick={() => loadMoreComments()}
-          >
-            Load more
-          </Button>
+          <Button text="Load more" onClick={loadMoreComments} />
         )}
       </div>
     );

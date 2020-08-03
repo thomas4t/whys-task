@@ -6,10 +6,8 @@ import { ThemeProvider } from "styled-components";
 
 const theme = {
   colors: {
-    lightBlue: "#61dafb",
-    darkGrey: "#282c34",
-    babyBlue: "#BFD7ED",
-    blueGrotto: "#60A3D9",
+    darkBackground: "#0D0221",
+    lightBlue: "#4B88A2",
   },
 };
 

@@ -38,7 +38,7 @@ function App() {
   return (
     <MainContainer elevation={20}>
       <ArticleContainer>
-        <h1>An article and some comments</h1>
+        <h1>An article by:</h1>
         <ArticleWrapper article={article} />
       </ArticleContainer>
       <CommentsContainer>

@@ -4,7 +4,8 @@ const ArticleContainer = styled.div`
   width: 60%;
   margin: 2% auto;
   padding: 2%;
-  border-bottom: 1px solid black;
+  background: ${(props) => props.theme.colors.lightBlue};
+  border-radius: 0 0 5px 5px;
   @media only screen and (max-width: 1200px) {
     width: 70%;
   }
