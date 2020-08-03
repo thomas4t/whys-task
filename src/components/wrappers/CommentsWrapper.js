@@ -1,23 +1,64 @@
 import React from "react";
 import Comment from "../Comment";
 import Loader from "react-loader-spinner";
+import Button from "@material-ui/core/Button";
+import LoaderContainer from "../../styles/containers/LoaderContainer";
 
-const CommentsWrapper = ({ comments }) => {
+const CommentsWrapper = ({
+  comments,
+  loadMoreComments,
+  loadingMoreComments,
+  extraCommentsLoaded,
+}) => {
   if (comments === null) {
     return (
       <>
-        <p>Loading comments...</p>
-        <Loader type="TailSpin" color="#00BFFF" height={"10%"} width={"10%"} />
+        <span>
+          <strong>Loading comments...</strong>
+        </span>
+        <LoaderContainer>
+          <Loader
+            type="TailSpin"
+            color="#00BFFF"
+            height={"10%"}
+            width={"10%"}
+          />
+        </LoaderContainer>
       </>
     );
   } else {
     return (
-      <>
+      <div>
         <h2>Comments</h2>
         {comments.map((comment) => (
           <Comment comment={comment} key={comment.id} />
         ))}
-      </>
+        {loadingMoreComments ? (
+          <>
+            <span>
+              <strong>Loading extra comments...</strong>
+            </span>
+            <LoaderContainer>
+              <Loader
+                type="TailSpin"
+                color="#00BFFF"
+                height={"10%"}
+                width={"10%"}
+              />
+            </LoaderContainer>
+          </>
+        ) : null}
+        {extraCommentsLoaded ? null : (
+          <Button
+            variant="contained"
+            color="primary"
+            size="small"
+            onClick={() => loadMoreComments()}
+          >
+            Load more
+          </Button>
+        )}
+      </div>
     );
   }
 };

@@ -12,6 +12,8 @@ const stall = async (stallTime = 1000) => {
 function App() {
   const [article, setArticle] = useState(null);
   const [comments, setComments] = useState(null);
+  const [loadingMoreComments, setLoadingMoreComments] = useState(false);
+  const [extraCommentsLoaded, setExtraCommentsLoaded] = useState(false);
 
   const loadInitialData = async () => {
     await stall(2000);
@@ -21,9 +23,12 @@ function App() {
   };
 
   const loadMoreComments = async () => {
+    setExtraCommentsLoaded(true);
+    setLoadingMoreComments(true);
     await stall(1000);
     let newComments = comments.concat(document.__moreComments);
     setComments(newComments);
+    setLoadingMoreComments(false);
   };
 
   useEffect(() => {
@@ -37,9 +42,13 @@ function App() {
         <ArticleWrapper article={article} />
       </ArticleContainer>
       <CommentsContainer>
-        <CommentsWrapper comments={comments} />
+        <CommentsWrapper
+          comments={comments}
+          loadMoreComments={loadMoreComments}
+          loadingMoreComments={loadingMoreComments}
+          extraCommentsLoaded={extraCommentsLoaded}
+        />
       </CommentsContainer>
-      <button onClick={() => loadMoreComments()}>click me </button>
     </MainContainer>
   );
 }
