@@ -1,17 +1,16 @@
 import React from "react";
-const Article = ({ author, date, text }) => {
-  const dateData = new Date(date);
-  const _date = {
-    date: dateData.toLocaleDateString(),
-    time: dateData.toLocaleTimeString(),
-  };
+const Article = ({ article }) => {
+  const d = new Date(article.date);
+  const date = d.toLocaleDateString();
+  const time = d.toLocaleTimeString();
+
   return (
     <div>
-      <h2>{author}</h2>
+      <h2>{article.author}</h2>
       <p>
-        {_date.date} @ {_date.time}
+        {date} @ {time}
       </p>
-      <p>{text}</p>
+      <p>{article.text}</p>
     </div>
   );
 };
