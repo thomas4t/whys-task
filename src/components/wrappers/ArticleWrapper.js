@@ -6,13 +6,7 @@ const ArticleWrapper = ({ article }) => {
   if (article === null) {
     return <CustomLoader message="Loading your article..." />;
   } else {
-    return (
-      <Article
-        author={article.author}
-        date={article.date}
-        text={article.text}
-      />
-    );
+    return <Article article={article} />;
   }
 };
 

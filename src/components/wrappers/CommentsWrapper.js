@@ -1,6 +1,6 @@
 import React from "react";
 import Comment from "../Comment";
-import Button from "../Button";
+import CustomButton from "../CustomButton";
 import CustomLoader from "../CustomLoader";
 
 const CommentsWrapper = ({
@@ -23,7 +23,7 @@ const CommentsWrapper = ({
         {loadingExtraComments ? (
           <CustomLoader message="Loading extra comments..." />
         ) : extraComments === null ? (
-          <Button text="Load more" onClick={loadExtraComments} />
+          <CustomButton text="Load more" onClick={loadExtraComments} />
         ) : (
           extraComments.map((comment) => (
             <Comment comment={comment} key={comment.id} />
