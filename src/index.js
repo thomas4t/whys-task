@@ -3,6 +3,7 @@ import ReactDOM from "react-dom";
 import App from "./App";
 import GlobalStyle from "./styles/GlobalStyle";
 import { ThemeProvider } from "styled-components";
+import { StylesProvider } from "@material-ui/core/styles";
 
 const theme = {
   colors: {
@@ -13,10 +14,12 @@ const theme = {
 
 ReactDOM.render(
   <React.StrictMode>
-    <ThemeProvider theme={theme}>
-      <App />
-      <GlobalStyle />
-    </ThemeProvider>
+    <StylesProvider injectFirst>
+      <ThemeProvider theme={theme}>
+        <App />
+        <GlobalStyle />
+      </ThemeProvider>
+    </StylesProvider>
   </React.StrictMode>,
   document.getElementById("APP")
 );

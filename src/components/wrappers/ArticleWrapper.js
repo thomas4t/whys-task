@@ -21,11 +21,6 @@ const ArticleWrapper = ({ article }) => {
       </div>
     );
   } else {
-    const d = new Date(article.date);
-    const date = {
-      date: d.toLocaleDateString(),
-      time: d.toLocaleTimeString(),
-    };
     return <Article author={article.author} date={date} text={article.text} />;
   }
 };
