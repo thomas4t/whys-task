@@ -5,9 +5,9 @@ import CustomLoader from "../CustomLoader";
 
 const CommentsWrapper = ({
   comments,
-  loadMoreComments,
-  loadingMoreComments,
-  extraCommentsLoaded,
+  extraComments,
+  loadExtraComments,
+  loadingExtraComments,
 }) => {
   if (comments === null) {
     return <CustomLoader message="Loading comments..." />;
@@ -18,11 +18,16 @@ const CommentsWrapper = ({
         {comments.map((comment) => (
           <Comment comment={comment} key={comment.id} />
         ))}
-        {loadingMoreComments ? (
+
+        {/* Conditionally rendering more comments */}
+        {loadingExtraComments ? (
           <CustomLoader message="Loading extra comments..." />
-        ) : null}
-        {extraCommentsLoaded ? null : (
-          <Button text="Load more" onClick={loadMoreComments} />
+        ) : extraComments === null ? (
+          <Button text="Load more" onClick={loadExtraComments} />
+        ) : (
+          extraComments.map((comment) => (
+            <Comment comment={comment} key={comment.id} />
+          ))
         )}
       </div>
     );
